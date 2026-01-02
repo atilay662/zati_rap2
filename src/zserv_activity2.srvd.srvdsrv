@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSERV_ACTIVITY2'
+define service ZSERV_ACTIVITY2 {
+  expose ZC_ACHEAD;
+  expose ZC_ACITEM;
+}

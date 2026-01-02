@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+annotate view ZC_ACHEAD with
+{
+  @UI.facet: [{ id:'HeaderAct',
+      purpose: #STANDARD,
+      position: 1,
+      label: 'Müşteri Bilgileri',
+      type: #IDENTIFICATION_REFERENCE
+  },
+  { id:'ItemAct',
+      purpose: #STANDARD,
+      position: 2,
+      label: 'Aktivite Girişleri',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_acitem'
+
+  }]
+
+  // HEADER ALANLARI
+  @UI.lineItem: [{ position:1 },{label:'Müşteri Id'} ,
+  { type:#FOR_ACTION, dataAction :'copyActivity',label:'Copy Activity'},
+  { type:#FOR_ACTION, dataAction :'acceptAct',label:'Approve Activity'},
+  { type:#FOR_ACTION, dataAction :'rejectAct',label:'Reject Activity'}
+  ]
+  
+  @UI.identification: [{ position: 1,label: 'Müşteri Id' }]
+  Musteriid;
+  @UI.lineItem: [{ position:2, label:'Müşteri'}]
+  @UI.identification: [{ position: 2 ,label: 'Müşteri'}]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZCDS_Musteri_VH' ,element: 'Musteri'} }]
+  @EndUserText.label: 'Müşteri'
+  Musteri;
+  @UI.lineItem: [{ position:3,label:'Şehir'}]
+  @UI.identification: [{ position: 3,label: 'Şehir' }]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  //      @UI.hidden: true
+  Sehir;
+  @UI.lineItem: [{ position:4,label:'Adres'}]
+  @UI.identification: [{ position: 4,label: 'Adres' }]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  Adres;
+  @UI.lineItem: [{ position:5,label:'Sorumlu'}]
+  @UI.identification: [{ position: 5,label: 'Sorumlu' }]
+  Sorumlu;
+  @UI.lineItem: [{ position:6,label:'Sozlesme'}]
+  @UI.identification: [{ position: 6,label: 'Sozlesme' }]
+  Sozlesme;
+  //  @UI.lineItem: [{ position:7,label:'Ticket Sayısı'}]
+  //  @UI.identification: [{ position: 7,label: 'Ticketsayisi' }]
+  //  ticketsayisi;
+  @UI.lineItem: [{ position:8,label:'Toplam Saat'}]
+  @UI.identification: [{ position: 8,label: 'Toplamsaat' }]
+  Toplamsaat;
+  @UI.lineItem: [{ position:9,label:'Onay Durum'}]
+  @UI.identification: [{ position: 9,label: 'Onay Durum' }]
+  Onaydrm;
+  // ITEM ALANLARI
+  @UI.lineItem: [{ position:10,label:'Adres'}]
+  _acitem;
+}

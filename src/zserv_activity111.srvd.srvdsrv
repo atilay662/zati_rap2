@@ -1,0 +1,5 @@
+@EndUserText.label: 'test'
+define service ZSERV_ACTIVITY111 {
+  expose ZC_ACHEAD;
+  expose ZC_ACITEM;
+}
